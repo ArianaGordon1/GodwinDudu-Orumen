@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Godwin Dudu-Orumen</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* BASE */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; background:#f8f9fb; color:#1a1a1a; }
+a { text-decoration:none; color:inherit; }
+
+/* NAVIGATION */
+.site-nav { background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.05); padding:1rem 2rem; position:sticky; top:0; z-index:1000; }
+.nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.brand img { width:40px; vertical-align:middle; margin-right:8px; }
+.nav-links { display:flex; gap:1rem; flex-wrap:wrap; }
+.nav-links a { padding:0.5rem 0.8rem; font-weight:600; border-radius:6px; transition:0.3s; }
+.nav-links a:hover, .nav-links a.active { background:#3c59a5; color:#fff; }
+.dropdown { position:relative; }
+.dropdown-toggle::after { content:' ▾'; font-size:0.8rem; margin-left:2px; }
+.dropdown-menu { position:absolute; top:100%; left:0; background:#fff; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.15); display:none; flex-direction:column; min-width:180px; }
+.dropdown:hover .dropdown-menu { display:flex; }
+.dropdown-menu a { padding:0.6rem 1rem; color:#1a1a1a; font-weight:500; transition:0.3s; }
+.dropdown-menu a:hover { background:#3c59a5; color:#fff; padding-left:12px; }
+.nav-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; }
+
+/* HERO + BIO */
+.hero-bio { display:flex; gap:3rem; align-items:center; max-width:1200px; margin:6rem auto 4rem; flex-wrap:wrap; padding:0 2rem; }
+.hero-bio .bio-text { flex:1; min-width:300px; }
+.hero-bio img { flex:0 0 300px; width:300px; border-radius:50%; box-shadow:0 10px 25px rgba(0,0,0,0.15); transition:transform 0.3s; }
+.hero-bio img:hover { transform:scale(1.05); }
+.hero-bio h1 { font-size:2.5rem; font-weight:900; color:#3c59a5; margin-bottom:1rem; }
+.hero-bio p { font-size:1.1rem; color:#4a4a4a; line-height:1.8; margin-bottom:1rem; }
+
+/* BIO SUMMARY */
+.bio-summary { max-width:900px; margin:2rem auto; padding:2rem; background:#fff; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.08); text-align:center; }
+.bio-summary h2 { font-size:2rem; color:#3c59a5; font-weight:900; margin-bottom:1rem; }
+.bio-summary p { font-size:1rem; color:#4a4a4a; line-height:1.8; }
+
+/* FLIP CARDS */
+.flip-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; max-width:1200px; margin:2rem auto; }
+.flip-card { background:#3c59a5; color:#fff; perspective:1000px; border-radius:16px; height:200px; }
+.flip-inner { position:relative; width:100%; height:100%; text-align:center; transition: transform 0.6s; transform-style: preserve-3d; border-radius:16px; }
+.flip-card:hover .flip-inner { transform:rotateY(180deg); cursor:pointer; }
+.flip-front, .flip-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; display:flex; align-items:center; justify-content:center; padding:1rem; border-radius:16px; }
+.flip-front { background:#3c59a5; font-weight:700; font-size:1.2rem; }
+.flip-back { background:#ffffff; color:#1a1a1a; transform:rotateY(180deg); font-size:0.95rem; font-weight:500; }
+
+/* STATS */
+.stats { display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; margin:3rem 0; }
+.stat { background:#fff; padding:2rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1); text-align:center; width:150px; transition:transform 0.3s; }
+.stat:hover { transform:translateY(-5px); }
+.stat h3 { font-size:2rem; color:#3c59a5; margin-bottom:0.5rem; }
+.stat p { font-size:1rem; color:#4a4a4a; }
+
+/* FOOTER */
+.site-footer { background:#1a1a1a; color:#fff; padding:2rem; text-align:center; }
+.site-footer .socials a { margin:0 0.5rem; font-size:1.5rem; transition:0.3s; }
+.site-footer .socials a:hover { color:#3c59a5; transform:translateY(-2px); }
+.site-footer div { opacity:0.8; font-size:0.9rem; margin-top:0.5rem; }
+
+/* RESPONSIVE */
+@media(max-width:900px){ 
+  .nav-links{flex-direction:column; gap:0; display:none;} 
+  .nav-links.open{display:flex;} 
+  .nav-toggle{display:block;} 
+  .hero-bio { flex-direction:column; text-align:center; }
+  .hero-bio img { margin:0 auto; }
+  .flip-grid { grid-template-columns:1fr; }
+  .stats { flex-direction:column; gap:1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <div class="brand"><img src="images/logo-placeholder.png" alt="GDO logo"> Godwin Dudu-Orumen</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">Books</a>
+        <div class="dropdown-menu"><a href="books.html">Sports, Politics & Power</a></div>
+      </div>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">SportShaq</a>
+        <div class="dropdown-menu"><a href="sportsshaq.html">Menu</a><a href="sportsshaq.html">RSVP</a></div>
+      </div>
+      <a href="conversation.html">Let's Talk Sports</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">Academy</a>
+        <div class="dropdown-menu">
+          <a href="academy-about.html">About The Academy</a>
+          <a href="academy-registration.html">Register Now</a>
+          <a href="academy-sponsor.html">Become A Sponsor</a>
+          <a href="academy-donate.html">Donate</a>
+          <a href="academy-academymedia.html">Media</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO + BIO -->
+<section class="hero-bio">
+  <div class="bio-text">
+    <h1>About Godwin Dudu-Orumen</h1>
+    <p>Godwin Dudu-Orumen is a man of uncommon abilities, a polymath whose talents span law, sports, and journalism. He is a double 1st degree holder in English Language and Literature and Law from the University of Benin, and also a graduate of the Nigerian Law School.</p>
+    <p>His commitment to any cause is one hundred percent. An individual who suffers no fools gladly, he speaks with boldness and candour to the Sports Establishment on matters of policy and conduct of administrators.</p>
+  </div>
+  <img src="images/godwin-placeholder.jpg" alt="Godwin Dudu-Orumen">
+</section>
+
+<!-- BIO SUMMARY -->
+<section class="bio-summary">
+  <h2>Career Highlights</h2>
+  <p>An individual who has held key roles in Nigerian sports administration, mentoring, and consultancy, cementing a reputation for competence, forthrightness, and integrity.</p>
+</section>
+
+<!-- FLIP CARDS -->
+<section class="flip-grid">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">Legal Officer & PA</div>
+      <div class="flip-back">Personal Assistant to the Chairman of the National Sports Commission</div>
+    </div>
+  </div>
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">Media Committee Member</div>
+      <div class="flip-back">National Sports Festival, Eko 2012</div>
+    </div>
+  </div>
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">Vice-Chair LSFA</div>
+      <div class="flip-back">Committee on the Establishment of a Super League 2012</div>
+    </div>
+  </div>
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">Pepsi Football Academy Director</div>
+      <div class="flip-back">(1995 – 1998)</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><h3 class="counter" data-target="60">0</h3><p>Years in Sports</p></div>
+  <div class="stat"><h3 class="counter" data-target="10">0</h3><p>Major Positions Held</p></div>
+  <div class="stat"><h3 class="counter" data-target="2">0</h3><p>University Degrees</p></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="socials">
+      <a href="#" aria-label="facebook">📘</a>
+      <a href="#" aria-label="twitter">🐦</a>
+      <a href="#" aria-label="instagram">📷</a>
+      <a href="#" aria-label="linkedin">💼</a>
+    </div>
+    <div>© <span id="year"></span> Godwin Dudu-Orumen. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Animated counters
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 200;
+    if(count < target){
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 10);
+    } else { counter.innerText = target; }
+  }
+  updateCount();
+});
+</script>
+
+</body>
+</html>

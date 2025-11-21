@@ -1,168 +1,208 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Godwin Dudu-Orumen — Sports, Politics & Power</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* --- BASE RESET --- */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; background:#f8f9fb; color:#1a1a1a; }
-    a { text-decoration:none; color:inherit; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Godwin Dudu-Orumen — Sports, Politics & Power</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* --- BASE RESET --- */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; background:#f8f9fb; color:#1a1a1a; }
+  a { text-decoration:none; color:inherit; }
 
-    /* --- NAVIGATION --- */
-    .site-nav { background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.05); padding:1rem 2rem; position:sticky; top:0; z-index:1000; }
-    .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-    .brand img { width:40px; vertical-align:middle; margin-right:8px; }
-    .nav-links { display:flex; gap:1rem; flex-wrap:wrap; }
-    .nav-links a { padding:0.5rem 0.8rem; font-weight:600; border-radius:6px; transition:0.3s; }
-    .nav-links a:hover { background:#3c59a5; color:#fff; }
-    .dropdown { position:relative; }
-    .dropdown-toggle::after { content:' ▾'; font-size:0.8rem; margin-left:2px; }
-    .dropdown-menu { position:absolute; top:100%; left:0; background:#fff; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.15); display:none; flex-direction:column; min-width:180px; }
-    .dropdown:hover .dropdown-menu { display:flex; }
-    .dropdown-menu a { padding:0.6rem 1rem; color:#1a1a1a; font-weight:500; }
-    .dropdown-menu a:hover { background:#3c59a5; color:#fff; }
+  /* --- NAVIGATION --- */
+  .site-nav { background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.05); padding:1rem 2rem; position:sticky; top:0; z-index:1000; }
+  .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .brand img { width:40px; vertical-align:middle; margin-right:8px; }
+  .nav-links { display:flex; gap:1rem; flex-wrap:wrap; }
+  .nav-links a { padding:0.5rem 0.8rem; font-weight:600; border-radius:6px; transition:0.3s; }
+  .nav-links a:hover { background:#3c59a5; color:#fff; }
+  .dropdown { position:relative; }
+  .dropdown-toggle::after { content:' ▾'; font-size:0.8rem; margin-left:2px; }
+  .dropdown-menu { position:absolute; top:100%; left:0; background:#fff; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.15); display:none; flex-direction:column; min-width:180px; }
+  .dropdown:hover .dropdown-menu { display:flex; }
+  .dropdown-menu a { padding:0.6rem 1rem; color:#1a1a1a; font-weight:500; transition:0.3s; }
+  .dropdown-menu a:hover { background:#3c59a5; color:#fff; padding-left:12px; }
 
-    .nav-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; }
+  .nav-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; }
 
-    /* --- HERO SECTION --- */
-    .hero { padding:6rem 2rem; background:linear-gradient(135deg,#f0f4ff,#ffffff); }
-    .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:1200px; margin:0 auto; align-items:center; }
-    .kicker { font-weight:600; color:#3c59a5; margin-bottom:0.5rem; }
-    .hero-title { font-size:2.5rem; font-weight:900; margin-bottom:1rem; }
-    .hero-title .highlight { color:#3c59a5; }
-    .hero-sub { font-size:1.1rem; margin-bottom:1.5rem; color:#4a4a4a; }
-    .hero-cta .cta { display:inline-block; padding:0.8rem 1.8rem; border-radius:50px; font-weight:700; background:#3c59a5; color:#fff; transition:0.3s; margin-top:0.5rem; }
-    .hero-cta .cta:hover { background:#2d4580; transform:translateY(-2px); }
+  /* --- HERO SECTION --- */
+  .hero { padding:6rem 2rem; background:linear-gradient(135deg,#f0f4ff,#ffffff); }
+  .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:1200px; margin:0 auto; align-items:center; }
+  .kicker { font-weight:600; color:#3c59a5; margin-bottom:0.5rem; }
+  .hero-title { font-size:2.5rem; font-weight:900; margin-bottom:1rem; }
+  .hero-title .highlight { color:#3c59a5; }
+  .hero-sub { font-size:1.1rem; margin-bottom:1.5rem; color:#4a4a4a; }
+  .hero-cta .cta { display:inline-block; padding:0.8rem 1.8rem; border-radius:50px; font-weight:700; background:#3c59a5; color:#fff; transition:0.3s; margin-top:0.5rem; }
+  .hero-cta .cta:hover { background:#2d4580; transform:translateY(-2px); }
 
-    /* --- FEATURED BOOK --- */
-    .featured-book { background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 10px 25px rgba(0,0,0,0.1); text-align:center; }
-    .book-badge { background:#3c59a5; color:#fff; padding:0.4rem 1rem; border-radius:50px; font-weight:700; display:inline-block; margin-bottom:1rem; }
-    .book-cover img { width:100%; max-width:220px; height:auto; border-radius:12px; margin-bottom:0.8rem; }
-    .book-info h3 { font-size:1.5rem; margin-bottom:0.5rem; color:#3c59a5; }
-    .book-info p { color:#4a4a4a; font-size:0.95rem; }
+  /* Hero image */
+  .hero img { width:100%; max-width:320px; border-radius:50%; box-shadow:0 10px 30px rgba(0,0,0,0.12); transition:transform 0.3s; }
+  .hero img:hover { transform:scale(1.05); }
 
-    /* --- EXPLORE CARDS --- */
-    .explore { padding:4rem 2rem; background:#ffffff; }
-    .section-title { font-size:2rem; font-weight:900; text-align:center; margin-bottom:0.5rem; }
-    .section-sub { font-size:1rem; text-align:center; color:#555; margin-bottom:2rem; }
-    .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
-    .card { background:#f9f9f9; padding:1.8rem; border-radius:12px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.08); transition:0.3s; }
-    .card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
-    .card .icon { font-size:2.5rem; margin-bottom:0.8rem; display:block; }
-    .card h3 { color:#3c59a5; margin-bottom:0.5rem; }
-    .card p { font-size:0.95rem; color:#4a4a4a; }
+  /* --- FEATURED BOOK --- */
+  .featured-book { background:#fff; border-radius:16px; padding:1.5rem; box-shadow:0 10px 25px rgba(0,0,0,0.1); text-align:center; transition:0.3s; }
+  .featured-book:hover { transform:translateY(-5px); }
+  .book-badge { background:#3c59a5; color:#fff; padding:0.4rem 1rem; border-radius:50px; font-weight:700; display:inline-block; margin-bottom:1rem; }
+  .book-cover img { width:100%; max-width:220px; height:auto; border-radius:12px; margin-bottom:0.8rem; }
+  .book-info h3 { font-size:1.5rem; margin-bottom:0.5rem; color:#3c59a5; }
+  .book-info p { color:#4a4a4a; font-size:0.95rem; }
 
-    /* --- FOOTER --- */
-    .site-footer { background:#1a1a1a; color:#fff; padding:2rem; text-align:center; }
-    .site-footer .socials a { margin:0 0.5rem; font-size:1.5rem; transition:0.3s; }
-    .site-footer .socials a:hover { color:#3c59a5; transform:translateY(-2px); }
-    .site-footer div { opacity:0.8; font-size:0.9rem; margin-top:0.5rem; }
+  /* --- FLIP CARDS --- */
+  .flip-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; max-width:1200px; margin:2rem auto; }
+  .flip-card { background:#3c59a5; color:#fff; perspective:1000px; border-radius:16px; height:200px; }
+  .flip-inner { position:relative; width:100%; height:100%; text-align:center; transition:transform 0.6s; transform-style:preserve-3d; border-radius:16px; }
+  .flip-card:hover .flip-inner { transform:rotateY(180deg); cursor:pointer; }
+  .flip-front, .flip-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; display:flex; align-items:center; justify-content:center; padding:1rem; border-radius:16px; }
+  .flip-front { background:#3c59a5; font-weight:700; font-size:1.2rem; }
+  .flip-back { background:#fff; color:#1a1a1a; transform:rotateY(180deg); font-size:0.95rem; font-weight:500; }
 
-    /* --- RESPONSIVE --- */
-    @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} .nav-links{flex-direction:column; gap:0; display:none;} .nav-links.open{display:flex;} .nav-toggle{display:block;} }
-  </style>
+  /* --- STATS --- */
+  .stats { display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; margin:3rem 0; }
+  .stat { background:#fff; padding:2rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.08); text-align:center; width:150px; transition:transform 0.3s; }
+  .stat:hover { transform:translateY(-5px); }
+  .stat h3 { font-size:2rem; color:#3c59a5; margin-bottom:0.5rem; }
+  .stat p { font-size:1rem; color:#4a4a4a; }
+
+  /* --- EXPLORE CARDS --- */
+  .explore { padding:4rem 2rem; background:#ffffff; }
+  .section-title { font-size:2rem; font-weight:900; text-align:center; margin-bottom:0.5rem; }
+  .section-sub { font-size:1rem; text-align:center; color:#555; margin-bottom:2rem; }
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
+  .card { background:#f9f9f9; padding:1.8rem; border-radius:12px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.08); transition:0.3s; }
+  .card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+  .card .icon { font-size:2.5rem; margin-bottom:0.8rem; display:block; }
+  .card h3 { color:#3c59a5; margin-bottom:0.5rem; }
+  .card p { font-size:0.95rem; color:#4a4a4a; }
+
+  /* --- FOOTER --- */
+  .site-footer { background:#1a1a1a; color:#fff; padding:2rem; text-align:center; }
+  .site-footer .socials a { margin:0 0.5rem; font-size:1.5rem; transition:0.3s; }
+  .site-footer .socials a:hover { color:#3c59a5; transform:translateY(-2px); }
+  .site-footer div { opacity:0.8; font-size:0.9rem; margin-top:0.5rem; }
+
+  /* --- RESPONSIVE --- */
+  @media(max-width:980px){
+    .hero-grid { grid-template-columns:1fr; gap:2rem; }
+    .hero img { max-width:280px; margin:0 auto; display:block; }
+    .stats { flex-direction:column; gap:1.5rem; align-items:center; }
+  }
+  @media(max-width:640px){
+    .nav-links{display:none;flex-direction:column; gap:0;}
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:block;}
+    .dropdown:hover .dropdown-menu{display:none;}
+    .dropdown-menu{position:static;box-shadow:none;border:none;}
+    .hero-title{font-size:1.8rem;}
+    .hero-sub{font-size:1rem;}
+    .hero-cta{display:flex;flex-direction:column;gap:12px;}
+    .featured-book { margin-top:2rem; }
+    .card-grid { grid-template-columns:1fr; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container nav-inner">
-      <div class="brand"><img src="Images/sitelogo.png" alt="GDO logo" /> The Godwin Dudu-Orumen Site</div>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-
-        <div class="dropdown">
-          <a class="dropdown-toggle" href="#">Books</a>
-          <div class="dropdown-menu"><a href="books.html">Sports, Politics & Power</a></div>
-        </div>
-
-        <div class="dropdown">
-          <a class="dropdown-toggle" href="#">SportShaq</a>
-          <div class="dropdown-menu"><a href="sportsshaq.html">Menu</a><a href="sportsshaq.html">RSVP</a></div>
-        </div>
-
-        <a href="conversation.html">Let's Talk Sports</a>
-
-        <div class="dropdown">
-          <a class="dropdown-toggle" href="#">Academy</a>
-          <div class="dropdown-menu">
-            <a href="academy-about.html">About The Academy</a>
-            <a href="academy-registration.html">Register Now</a>
-            <a href="academy-sponsor.html">Become A Sponsor</a>
-            <a href="academy-donate.html">Donate</a>
-            <a href="academy-academymedia.html">Media</a>
-          </div>
-        </div>
-
-        <a href="contact.html">Contact</a>
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <div class="brand"><img src="images/sitelogo.png" alt="GDO logo" /> Godwin Dudu-Orumen</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">Books</a>
+        <div class="dropdown-menu"><a href="books.html">Sports, Politics & Power</a></div>
       </div>
-    </div>
-  </nav>
-
-  <!-- HERO / INTRO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="kicker">Author · Entrepreneur · Coach</div>
-        <h1 class="hero-title">Welcome to the world of <span class="highlight">Godwin Dudu-Orumen</span></h1>
-        <p class="hero-sub">A storyteller and practitioner at the intersection of sport, leadership and public life. Explore the book, visit Sports Shaq, or join our football academy.</p>
-        <div class="hero-cta">
-          <a href="books.html" class="cta">Discover the Book</a>
-          <a href="conversation.html" class="cta secondary" style="margin-left:12px">Let’s Talk Sports</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">SportShaq</a>
+        <div class="dropdown-menu"><a href="sportsshaq.html">Menu</a><a href="sportsshaq.html">RSVP</a></div>
+      </div>
+      <a href="conversation.html">Let's Talk Sports</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">Academy</a>
+        <div class="dropdown-menu">
+          <a href="academy-about.html">About The Academy</a>
+          <a href="academy-registration.html">Register Now</a>
+          <a href="academy-sponsor.html">Become A Sponsor</a>
+          <a href="academy-donate.html">Donate</a>
+          <a href="academy-academymedia.html">Media</a>
         </div>
       </div>
-
-      <!-- FEATURED BOOK -->
-      <aside class="featured-book" aria-labelledby="book-title">
-        <div class="book-badge">NEW RELEASE</div>
-        <div class="book-cover">
-          <img src="Images/bookcover.jpg" alt="Sports, Politics & Power Book Cover">
-        </div>
-        <div class="book-info">
-          <h3 id="book-title">Sports, Politics & Power</h3>
-          <p id="book-tagline">An incisive look at how sports shape influence and power — from stadiums to state rooms. Read the stories, meet the characters, and understand the stakes.</p>
-        </div>
-      </aside>
+      <a href="contact.html">Contact</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- EXPLORE CARDS -->
-  <section class="explore" id="explore">
-    <div class="container explore-inner">
-      <h2 class="section-title">Explore</h2>
-      <p class="section-sub">Navigate the key parts of the GDO universe — the book, the restaurant, the academy, and candid conversations.</p>
-      <div class="card-grid">
-        <a href="books.html" class="card"><div class="icon">📚</div><h3>Books</h3><p>Discover arguments, essays and stories on sport, power and society. Buy copies and leave reviews.</p></a>
-        <a href="sportsshaq.html" class="card"><div class="icon">🍽️</div><h3>Sports Shaq</h3><p>A sports-themed restaurant where great food meets great conversation — menu, reservations, events.</p></a>
-        <a href="conversation.html" class="card"><div class="icon">💬</div><h3>Conversations</h3><p>Live events, Q&As and written conversations with GDO — submit questions and join the discussion.</p></a>
-        <a href="academy-about.html" class="card"><div class="icon">⚽</div><h3>Football Academy</h3><p>Training programs for young athletes: registration, sponsorship and community impact.</p></a>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Author · Entrepreneur · Coach</div>
+      <h1 class="hero-title">Welcome to the world of <span class="highlight">Godwin Dudu-Orumen</span></h1>
+      <p class="hero-sub">A storyteller and practitioner at the intersection of sport, leadership and public life. Explore the book, visit Sports Shaq, or join our football academy.</p>
+      <div class="hero-cta">
+        <a href="books.html" class="cta">Discover the Book</a>
+        <a href="conversation.html" class="cta secondary">Let’s Talk Sports</a>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="socials">
-        <a href="#" aria-label="facebook">📘</a>
-        <a href="#" aria-label="twitter">🐦</a>
-        <a href="#" aria-label="instagram">📷</a>
-        <a href="#" aria-label="linkedin">💼</a>
+    <!-- FEATURED BOOK -->
+    <aside class="featured-book">
+      <div class="book-badge">NEW RELEASE</div>
+      <div class="book-cover"><img src="images/bookcover.jpg" alt="Sports, Politics & Power Book Cover"></div>
+      <div class="book-info">
+        <h3>Sports, Politics & Power</h3>
+        <p>An incisive look at how sports shape influence and power — from stadiums to state rooms. Read the stories, meet the characters, and understand the stakes.</p>
       </div>
-      <div>© <span id="year"></span> Godwin Dudu-Orumen. All rights reserved.</div>
-    </div>
-  </footer>
+    </aside>
+  </div>
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<!-- EXPLORE CARDS -->
+<section class="explore">
+  <h2 class="section-title">Explore</h2>
+  <p class="section-sub">Navigate the key parts of the GDO universe — the book, the restaurant, the academy, and candid conversations.</p>
+  <div class="card-grid">
+    <a href="books.html" class="card"><div class="icon">📚</div><h3>Books</h3><p>Discover arguments, essays and stories on sport, power and society. Buy copies and leave reviews.</p></a>
+    <a href="sportsshaq.html" class="card"><div class="icon">🍽️</div><h3>Sports Shaq</h3><p>A sports-themed restaurant where great food meets great conversation — menu, reservations, events.</p></a>
+    <a href="conversation.html" class="card"><div class="icon">💬</div><h3>Conversations</h3><p>Live events, Q&As and written conversations with GDO — submit questions and join the discussion.</p></a>
+    <a href="academy-about.html" class="card"><div class="icon">⚽</div><h3>Football Academy</h3><p>Training programs for young athletes: registration, sponsorship and community impact.</p></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="socials">
+      <a href="#" aria-label="facebook">📘</a>
+      <a href="#" aria-label="twitter">🐦</a>
+      <a href="#" aria-label="instagram">📷</a>
+      <a href="#" aria-label="linkedin">💼</a>
+    </div>
+    <div>© <span id="year"></span> Godwin Dudu-Orumen. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Animated counters
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 200;
+      if(count < target){
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 10);
+      } else { counter.innerText = target; }
+    }
+    updateCount();
+  });
+</script>
 </body>
 </html>
-
-
-
